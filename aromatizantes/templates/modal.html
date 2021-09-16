@@ -1,0 +1,108 @@
+<div class="modal" id="modal_{{boton.id}}">
+  <div class="modal-background"></div>
+  <div class="modal-card" style="width: 80vw">
+    <header class="modal-card-head">
+      <p class="modal-card-title">{{boton.texto}}</p>
+      <button
+        class="delete"
+        aria-label="close"
+        id="close_modal_{{boton.id}}"
+      ></button>
+    </header>
+
+    <section class="modal-card-body">
+      <form action="{{ boton.url }}" id="form_{{boton.id}}">
+        <div class="field">
+          <label class="label">Fecha desde</label>
+          <div class="control">
+            <input
+              name="desde"
+              class="input"
+              type="date"
+              placeholder="Text input"
+            />
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="label">Fecha hasta</label>
+          <div class="control">
+            <input
+              name="hasta"
+              class="input"
+              type="date"
+              placeholder="Text input"
+            />
+          </div>
+        </div>
+      </form>
+      <h3 class="subtitle is-3 mt-5" style="text-align: center;display: none; " id="titulo_{{boton.id}}"> 
+        Resultados
+      </h3>
+      <div id="tabla_{{boton.id}}"></div>
+    </section>
+
+    <footer class="modal-card-foot">
+      <button
+        class="button is-success"
+        type="submit"
+        id="exportar_{{boton.id}}"
+      >
+        Exportar
+      </button>
+    </footer>
+  </div>
+</div>
+<script>
+      //
+      
+      document.getElementById('exportar_{{boton.id}}').onclick = () => {
+        document.getElementById('form_{{boton.id}}').dispatchEvent(new Event('submit'));
+      }
+
+    
+
+      $("#form_{{boton.id}}").submit( (e) => {
+          var form = $("#form_{{boton.id}}");
+          var url = form.attr('action');
+          
+          $.ajax({
+              type : "GET",
+              url : url,
+              data : form.serialize(),
+              success : (data) =>{
+                  document.getElementById('titulo_{{boton.id}}').style.display = "block";
+
+                  document.getElementById('tabla_{{boton.id}}').innerHTML = data;
+
+              }
+          });
+
+      });
+
+
+      // mostrar y ocualtar el modal
+
+      function comenzar_{{boton.id}}(){
+        jQuery( jQuery("#modal_{{boton.id}}").detach()).appendTo("body");
+
+        const botonModal = document.getElementById("{{boton.id}}");
+
+        const modal = document.getElementById("modal_{{boton.id}}");
+
+          botonModal.onclick= function (e) {
+              e.preventDefault();
+              modal.classList.add("is-active");
+
+          };
+
+        const boton_cerrar = document.getElementById('close_modal_{{boton.id}}');
+
+          boton_cerrar.onclick=function() {
+              modal.classList.remove("is-active");
+          }
+
+      }
+
+    window.addEventListener('load',comenzar_{{boton.id}});
+</script>

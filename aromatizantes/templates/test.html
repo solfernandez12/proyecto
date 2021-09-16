@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title>M Y D AROMATIZANTES</title>
+  </head>
+  <body>
+    <h1 style= 'Times-Roman: Times New Roman'> M Y D AROMATIZANTES / VISITAS GENERADAS</h1>
+
+
+
+  <table class="table">
+  <thead class="thead-dark">
+      <tr>
+        <th style='Times-Roman: Times New Roman'>Cliente</th>
+        <th >Pedido</th>
+        <th >Zona</th>
+        <th>Fecha</th>
+        <th>Hora</th>
+        <th>Direccion</th>
+       
+      </tr>
+    </thead>
+
+    <tbody>
+      {% for visita in visitas %}
+      <tr>
+        <td style='width: 160px'><hr>{{ visita.cliente }}</td>
+        <td style='width: 250px'><hr>{{ visita.pedido }}</td>
+        <td style='width: 55px'><hr>{{ visita.cliente.zona}}</td>
+        <td style='width: 75px'><hr>{{ visita.fecha }}</td>
+        <td style='width: 50px'><hr>{{ visita.cliente.horario_disponible_desde}}</td>
+        <td style='width: 90px'><hr>{{ visita.cliente.direccion}}</td>
+     
+      </tr>
+      
+      {% endfor %}
+
+    </tbody>
+  </table>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  </body>
+</html>

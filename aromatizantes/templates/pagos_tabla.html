@@ -1,0 +1,28 @@
+<table class="table is-fullwidth">
+  <thead>
+    <tr>
+      <th>Cliente</th>
+      <th>Medio pago</th>
+      <th>Fecha</th>
+      <th>Monto</th>
+      <th>Estado</th>
+      <th>Pedido</th>
+      <th>Observaciones</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    {% for pago in pagos %}
+    <tr>
+      <td>{{ pago.cliente }}</td>
+      <td>{{ pago.medio_pago }}</td>
+      <td>{{ pago.fecha }}</td>
+      <td>{{ pago.monto }}</td>
+      <td>{{ pago.estado }}</td>
+      <td>{{ pago.pedido }}</td>
+      <td>{{ pago.observaciones }}</td>
+    </tr>
+    {% endfor %}
+    
+  </tbody>
+</table>

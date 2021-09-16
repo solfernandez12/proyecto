@@ -1,0 +1,70 @@
+{% extends 'base.html' %} {% load static %} {% block style %}
+<style>
+  img {
+    height: 100px;
+    min-width: 100px;
+  }
+  h1 {
+    text-align: center;
+  }
+  .exportar {
+    width: 100%;
+  }
+  .box {
+    transition: transform 0.2s;
+  }
+  .box:hover {
+    transform: scale(1.1);
+  }
+</style>
+
+{% endblock style %} 
+
+{% block body %}
+<a class="button mt-5 ml-5" href="/admin/">
+  <i class="fas fa-hand-point-left fa-2x"></i>&nbsp;Volver
+</a>
+<div class="container mt-5">
+  {% for fila in tarjetas %}
+  <div class="columns">
+    {% for tarjeta in fila.tarjetas %}
+    <div class="column is-3">
+      <div class="box">
+        <h1 class="title">{{ tarjeta.titulo }}</h1>
+        <div class="columns">
+          <div class="column is-half is-offset-one-quarter">
+            <img src="{{tarjeta.ruta_img}}" alt="Imagen Clientes" />
+          </div>
+        </div>
+        
+        {% for boton in tarjeta.botones %}
+          {% if boton.modal%}
+            {% include 'modal.html' %} 
+          {% endif %}
+
+          {% if boton.color %}
+           
+           <a class=" button {{boton.color}} mt-1 exportar" href= "{{boton.url}}"id="{{boton.id}}">
+                <i class = "fas fa-file-excel"></i>&nbsp;{{boton.texto}}
+            </a>
+          {% else %}
+            <a class=" button is-primary mt-1 exportar" href= "{{boton.url}}"id="{{boton.id}}">
+              <i class = "fas fa-file-excel"></i>&nbsp;{{boton.texto}}
+            </a>
+          
+          {% endif %}
+
+         
+
+         
+        {% endfor %}
+
+        
+      </div>
+    </div> 
+    {% endfor %}
+  </div>
+  {% endfor %}
+</div>
+
+{% endblock body %}

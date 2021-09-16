@@ -1,0 +1,24 @@
+<table class="table is-fullwidth">
+  <thead>
+    <tr>
+      <th>Cliente</th>
+      <th>Fecha</th>
+      <th>Hora</th>
+      <th>Zona</th>
+      <th>Direccion</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    {% for visita in visitas %}
+    <tr>
+        <td>{{ visita.cliente }}</td>
+        <td>{{ visita.fecha }}</td>
+        <td>{{ visita.cliente.horario_disponible_desde}}</td>
+        <td>{{ visita.cliente.zona }}</td>
+        <td>{{ visita.cliente.direccion }}</td>
+    </tr>
+    {% endfor %}
+    
+  </tbody>
+</table>

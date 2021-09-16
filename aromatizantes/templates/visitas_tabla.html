@@ -1,0 +1,28 @@
+<table class="table is-bordered">
+  <thead>
+    <tr>
+      <th>Cliente</th>
+      <th>Pedido</th>
+      <th>Estado</th>
+      <th>Fecha</th>
+      <th>Hora</th>
+      <th>Direccion </th>
+      <th>Observaciones</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    {% for visita in visitas %}
+    <tr>
+      <td>{{ visita.cliente }}</td>
+      <td>{{ visita.pedido }}</td>
+      <td>{{ visita.estado }}</td>
+      <td>{{ visita.fecha }}</td>
+      <td>{{ visita.cliente.horario_disponible_desde}}</td>
+       <td>{{ visita.cliente.direccion}}</td>
+      <td>{{ visita.observaciones }}</td>
+    </tr>
+    {% endfor %}
+    
+  </tbody>
+</table>

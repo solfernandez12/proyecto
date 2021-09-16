@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>GENERAR PEDIDO</title>
+
+    <style>
+        .content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .card {
+            height: 80%;
+            width: 80%;
+            border-color: black;
+            border-radius: 5%;
+        }
+
+        .center {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+<div class="content">
+    <div class="card">
+        {% if presupuesto_ok %}
+            <h1>EL PRESUPUESTO HA SIDO CONFIRMADO !</h1>
+            <p>Se ha generado el pedido #{{ pedido.pk }} del presupuesto #{{ presupuesto.pk }}</p>
+            <p class="center">MUCHAS GRACIAS!</p>
+        {% else %}
+            ERROR
+        {% endif %}
+    </div>
+</div>
+</body>
+</html>

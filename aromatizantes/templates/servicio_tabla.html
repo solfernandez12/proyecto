@@ -1,0 +1,28 @@
+
+<table class="table is-fullwidth">
+
+  <thead>
+    <tr>
+      <th>Cliente</th>
+      <th>Estado</th>
+      <th>Fecha</th>
+      <th>Fecha Programada</th>
+      <th>Hora</th>
+      <th>Observaciones</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    {% for servicio in servicios %}
+    <tr>
+      <td>{{ servicio.cliente }}</td>
+      <td>{{ servicio.estado }}</td>
+      <td>{{ servicio.fecha }}</td>
+      <td>{{ servicio.fecha_programada }}</td>
+      <td>{{ servicio.hora}}</td>
+      <td>{{ servicio.observaciones }}</td>
+    </tr>
+    {% endfor %}
+    
+  </tbody>
+</table>
